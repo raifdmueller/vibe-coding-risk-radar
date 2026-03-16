@@ -401,6 +401,9 @@ export default function RadarChart({
               <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#000" floodOpacity="0.4" />
             </filter>
           </defs>
+          <clipPath id="tt-clip">
+            <rect x={tipX} y={tipY} width={tooltipW} height={tooltipH} rx={10} />
+          </clipPath>
           <rect
             x={tipX}
             y={tipY}
@@ -412,7 +415,7 @@ export default function RadarChart({
             strokeWidth={1.5}
             filter="url(#tt-shadow)"
           />
-          <rect x={tipX} y={tipY} width={4} height={tooltipH} rx={4} fill={tc} />
+          <rect x={tipX} y={tipY} width={5} height={tooltipH} fill={tc} clipPath="url(#tt-clip)" />
           <text x={tipX + 14} y={tipY + 19} fill="#94a3b8" fontSize="11" fontWeight="500">
             {tooltip.label}
           </text>
